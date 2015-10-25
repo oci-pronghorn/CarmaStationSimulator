@@ -15,12 +15,18 @@
   </properties>
 
   <dependencies>
-      <dependency>
+     <dependency>
     	 <groupId>com.ociweb.pronghorn.adapter</groupId>
 		 <version>0.0.1-SNAPSHOT</version>
 		 <artifactId>NettyStages</artifactId> <!-- MUST BE FIRST -->
-	  </dependency>
-  
+	 </dependency>
+    
+     <dependency>
+	          <groupId>org.eclipse.paho</groupId>
+	          <artifactId>mqtt-client</artifactId>
+	          <version>0.4.0</version>
+     </dependency>
+     
      <dependency>
 	  	<groupId>com.ociweb</groupId>
 	  	<artifactId>Pronghorn</artifactId>

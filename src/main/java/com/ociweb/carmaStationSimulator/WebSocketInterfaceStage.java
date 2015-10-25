@@ -1,5 +1,9 @@
 package com.ociweb.carmaStationSimulator;
 
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
 import com.ociweb.pronghorn.adapter.netty.WebSocketSchema;
 import com.ociweb.pronghorn.pipe.Pipe;
 import com.ociweb.pronghorn.pipe.PipeReader;
@@ -12,6 +16,7 @@ public class WebSocketInterfaceStage extends PronghornStage{
     
     private final Pipe<WebSocketSchema> input;
     private final Pipe<WebSocketSchema> output;
+    private MqttClient mqttClient;
     
     public WebSocketInterfaceStage(GraphManager gm, Pipe<WebSocketSchema> input, Pipe<WebSocketSchema> output) {
        super(gm, input, output);
@@ -25,6 +30,21 @@ public class WebSocketInterfaceStage extends PronghornStage{
     public void startup() {
         //do any new allocations here
         //this method is allowed to block as needed on external resources
+        
+        
+        String host = "tcp://127.0.0.1:1883";
+        String clientName = "FakeSensor";
+                
+        
+        try {
+            mqttClient = new MqttClient(host, clientName, new MemoryPersistence());
+            mqttClient.connect();
+        } catch (MqttException e) {
+            throw new RuntimeException(e);
+        }
+                        
+        
+        
     }
     
     
