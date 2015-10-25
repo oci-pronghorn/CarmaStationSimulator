@@ -1,0 +1,36 @@
+<h3>Pump Simulation</h3>
+
+<!-- these values are sent to the back end where the simulation is done -->
+<form class="form-horizontal">
+  <!-- parameters needed to prime the simulator -->
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Station</label>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" ng-model="station">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Simulation Rate</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" ng-model="simRate">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Fuel Types</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" ng-model="fuelTypes">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Price per Gallon</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" ng-model="pricePerGallon">
+    </div>
+  </div>
+  <button class="col-sm-offset-3 btn btn-default" ng-click="togglePumpSimulation()">
+    <span>{{pumpSimulationRunning ? 'End' : 'Begin'}}</span> Pump Simulation
+  </button>
+</form>
+
+<h4>Status</h4>
+{{pumpStatus}} <!-- from websocket response -->

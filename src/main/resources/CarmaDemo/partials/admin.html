@@ -1,0 +1,17 @@
+<!-- This is the admin page for setting the IP address
+     of the Broker we will be connecting to.
+     This must be here for easy access in the demo. -->
+
+<h3>App Administration</h3>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Broker Address</label>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" ng-model="brokerAddress">
+    </div>
+  </div>
+  <button class="btn btn-default" ng-click="send()">Send</button>
+
+  <!-- TODO: Show response from webSocket for new address in use. -->
+</form>

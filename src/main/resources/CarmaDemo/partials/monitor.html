@@ -1,0 +1,34 @@
+<h3>Real Time Monitoring</h3>
+
+<!-- This page will show data about the tanks and pumps
+     Chart would be nice, but scrolling text is acceptable.
+
+     WebSocket will send something like
+     timestamp, gallons, fuelType
+
+     I want to avoid the complexity of JSON in the WebSocket payload
+     if there something easy we could do.
+     Perhaps this where we could split on pipes.
+     2015-05-05 07:30:00|1234000|Premium
+-->
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Station</label>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" ng-model="station">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Fuel Type Designator</label>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" ng-model="fuelTypeDesignator">
+    </div>
+  </div>
+  <button class="col-sm-offset-4 btn btn-default" ng-click="monitor()">
+    Monitor Now
+  </button>
+</form>
+
+<h4>Updates</h4>
+<div id="messageArea">{{message}}</div>
